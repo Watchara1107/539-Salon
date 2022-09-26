@@ -191,22 +191,22 @@
                             </div>
                             <div class="col-lg-12">
                                 <fieldset>
-                                <select class="form-select" name="beautician" required="">
-                                  <option selected>เลือกช่าง</option>
-                                  <option value="ช่างบิ๊ก">ช่างบิ๊ก</option>
+                                    <select class="form-control" name="salon">
+                                        <option value="">เลือกช่าง</option>
+                                        @foreach($salon as $salons)
+                                        <option value="{{$salons->id}}">{{$salons->name}}</option>
+                                        @endforeach
                                 </select>
                               </fieldset>
                             </div><br><br><br>
                             <div class="col-lg-12">
                               <fieldset>
-                              <select class="form-select" name="manu" required>
-                                <option selected>เลือกรายการบริการ</option>
-                                <option value="ตัดผม">ตัดผม</option>
-                                <option value="ดัดผม">ดัดผม</option>
-                                <option value="ยืดผม">ยืดผม</option>
-                                <option value="ทำสีผม">ทำสีผม</option>
-                                <option value="สระไดร์">สระไดร์</option>
-                              </select>
+                                <select class="form-control" name="services">
+                                    <option value="">เลือกบริการ</option>
+                                    @foreach($service as $services)
+                                    <option value="{{$services->id}}">{{$services->name}}</option>
+                                    @endforeach
+                            </select>
                             </fieldset>
                           </div>
                            <br><br><br>

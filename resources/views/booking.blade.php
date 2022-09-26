@@ -98,77 +98,77 @@ https://templatemo.com/tm-573-eduwell
               </div>
             </div>
             <div class="col-lg-4">
-                <form id="contact" action="{{ route('booking.create') }}" method="post">
-                    @csrf
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="section-heading">
-                                <h6>Booking</h6>
-                                <h4>ระบบจองคิว <em>ร้าน 365 Salon</em></h4>
-                            </div>
+              <form id="contact" action="{{ route('booking.create') }}" method="post">
+                @csrf
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="section-heading">
+                            <h6>Booking</h6>
+                            <h4>ระบบจองคิว <em>ร้าน 365 Salon</em></h4>
                         </div>
-                        <div class="col-lg-12">
-                            <fieldset>
-                                <input type="name" name="name" id="name" placeholder="ชื่อ-นามสกุลผู้จอง"
-                                    autocomplete="on" required>
-                            </fieldset>
-                        </div>
-                        <div class="col-lg-12">
-                            <fieldset>
-                                <input type="text" name="email" id="อีเมล์" pattern="[^ @]*@[^ @]*"
-                                    placeholder="อีเมล์">
-                            </fieldset>
-                        </div>
-                        <div class="col-lg-12">
-                            <fieldset>
-                                <input type="text" name="phone" id="phone" placeholder="เบอร์โทรศัพท์" required="">
-                            </fieldset>
-                        </div>
-                        <div class="col-lg-12">
-                            <fieldset>
-                                <input type="date" name="date" id="date" required>
-                            </fieldset>
-                        </div>
-                        <div class="col-lg-12">
-                            <fieldset>
-                                <input type="time" name="time" id="time" required>
-                            </fieldset>
-                        </div>
-                        <div class="col-lg-12">
-                            <fieldset>
-                            <select class="form-select" name="beautician" required="">
-                              <option selected>เลือกช่าง</option>
-                              <option value="ช่างบิ๊ก">ช่างบิ๊ก</option>
-                            </select>
-                          </fieldset>
-                        </div><br><br><br>
-                        <div class="col-lg-12">
-                          <fieldset>
-                          <select class="form-select" name="manu" required>
-                            <option selected>เลือกรายการบริการ</option>
-                            <option value="ตัดผม">ตัดผม</option>
-                            <option value="ดัดผม">ดัดผม</option>
-                            <option value="ยืดผม">ยืดผม</option>
-                            <option value="ทำสีผม">ทำสีผม</option>
-                            <option value="สระไดร์">สระไดร์</option>
-                          </select>
-                        </fieldset>
-                      </div>
-                       <br><br><br>
-                       <div class="col-lg-12">
+                    </div>
+                    <div class="col-lg-12">
                         <fieldset>
-                            <input type="text" name="manu2" id="manu2" placeholder="อื่นๆ">
+                            <input type="name" name="name" id="name" placeholder="ชื่อ-นามสกุลผู้จอง"
+                                autocomplete="on" required>
                         </fieldset>
                     </div>
-                       <br><br><br>
-                 
-                        <div class="col-lg-12">
-                            <fieldset>
-                                <button type="submit" id="form-submit" class="main-gradient-button">จองคิว</button>
-                            </fieldset>
-                        </div>
+                    <div class="col-lg-12">
+                        <fieldset>
+                            <input type="text" name="email" id="อีเมล์" pattern="[^ @]*@[^ @]*"
+                                placeholder="อีเมล์">
+                        </fieldset>
                     </div>
-                </form>
+                    <div class="col-lg-12">
+                        <fieldset>
+                            <input type="text" name="phone" id="phone" placeholder="เบอร์โทรศัพท์" required="">
+                        </fieldset>
+                    </div>
+                    <div class="col-lg-12">
+                        <fieldset>
+                            <input type="date" name="date" id="date" required>
+                        </fieldset>
+                    </div>
+                    <div class="col-lg-12">
+                        <fieldset>
+                            <input type="time" name="time" id="time" required>
+                        </fieldset>
+                    </div>
+                    <div class="col-lg-12">
+                        <fieldset>
+                            <select class="form-control" name="salon">
+                                <option value="">เลือกช่าง</option>
+                                @foreach($salon as $salons)
+                                <option value="{{$salons->id}}">{{$salons->name}}</option>
+                                @endforeach
+                        </select>
+                      </fieldset>
+                    </div><br><br><br>
+                    <div class="col-lg-12">
+                      <fieldset>
+                        <select class="form-control" name="services">
+                            <option value="">เลือกบริการ</option>
+                            @foreach($service as $services)
+                            <option value="{{$services->id}}">{{$services->name}}</option>
+                            @endforeach
+                    </select>
+                    </fieldset>
+                  </div>
+                   <br><br><br>
+                   <div class="col-lg-12">
+                    <fieldset>
+                        <input type="text" name="manu2" id="manu2" placeholder="อื่นๆ">
+                    </fieldset>
+                </div>
+                   <br><br><br>
+             
+                    <div class="col-lg-12">
+                        <fieldset>
+                            <button type="submit" id="form-submit" class="main-gradient-button">จองคิว</button>
+                        </fieldset>
+                    </div>
+                </div>
+            </form>
             </div>
 
           <div class="col-lg-12">

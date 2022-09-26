@@ -32,8 +32,8 @@
                             <td>{{ $book->phone }}</td>
                             <td>{{ $book->date }}</td>
                             <td>{{ $book->time }}</td>
-                            <td>{{ $book->manu }} {{ $book->manu2 }}</td>
-                            <td>{{ $book->beautician }}</td>
+                            <td>{{ $book->services->name }} </td>
+                            <td>{{ $book->salon->name }}</td>
                             <td><span class="badge bg-label-primary me-1">{{ $book->status }}</span></td>
                             <td>
                                 @if ($book->service == 0)

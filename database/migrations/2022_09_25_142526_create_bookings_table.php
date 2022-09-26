@@ -20,8 +20,8 @@ return new class extends Migration
             $table->string('phone');
             $table->date('date');
             $table->time('time');
-            $table->string('beautician');
-            $table->string('manu');
+            $table->integer('salon_id');
+            $table->integer('service_id');
             $table->string('manu2')->nullable()->default("ลูกค้าไม่ได้กรอกข้อมูล");
             $table->string('status')->default("รอรับคิว");
             $table->boolean('service')->default(0);

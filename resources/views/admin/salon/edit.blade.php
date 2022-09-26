@@ -1,0 +1,30 @@
+@extends('layouts.master_backend')
+@section('content')
+    <div class="text-center">
+        
+            <div class="col-12">
+                <div class="card mb-4">
+                    <h5 class="card-header">แก้ไขชื่อช่างเสริมสวย</h5>
+                    <div class="card-body">
+                        
+                        <form action="{{ url('/admin/salon/update/'.$salon->id) }}" method="post">
+                            @csrf
+                            <div class="mb-3 row">
+                                <label for="html5-text-input" class="col-md-2 col-form-label">ชื่อช่าง</label>
+                                <div class="col-md-10">
+                                    <input class="form-control" type="text" name="name" value="{{ $salon->name }}" id="html5-text-input" />
+                                </div>
+                            </div>
+                            <div class="row mt-4">
+                                <div class="col-12">
+                                    <input type="submit" class="btn btn-primary" value="อัพเดทข้อมูล">
+                                </div>
+                            </div>
+                        </form>
+                        
+
+                    </div>
+                </div>
+            </div>
+
+    @endsection

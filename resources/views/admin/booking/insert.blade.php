@@ -57,12 +57,10 @@
                     <label for="html5-tel-input" class="col-md-2 col-form-label">รายการจอง</label>
                     <div class="col-md-10">
                         <select class="form-select" name="manu" required>
-                            <option selected>เลือกรายการบริการ</option>
-                            <option value="ตัดผม">ตัดผม</option>
-                            <option value="ดัดผม">ดัดผม</option>
-                            <option value="ยืดผม">ยืดผม</option>
-                            <option value="ทำสีผม">ทำสีผม</option>
-                            <option value="สระไดร์">สระไดร์</option>
+                          <option value="">เลือกบริการ</option>
+                          @foreach($service as $services)
+                          <option value="{{$services->id}}">{{$services->name}}</option>
+                          @endforeach
                           </select>
                     </div>
                   </div>
@@ -78,8 +76,10 @@
                     <label for="html5-tel-input" class="col-md-2 col-form-label">เลือกช่าง</label>
                     <div class="col-md-10">
                         <select class="form-select" name="beautician" required="">
-                            <option selected>เลือกช่าง</option>
-                            <option value="ช่างบิ๊ก">ช่างบิ๊ก</option>
+                          <option value="">เลือกช่าง</option>
+                          @foreach($salon as $salons)
+                          <option value="{{$salons->id}}">{{$salons->name}}</option>
+                          @endforeach
                           </select>
                     </div>
                   </div>

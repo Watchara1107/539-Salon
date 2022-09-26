@@ -61,7 +61,7 @@
 
         <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
           <div class="app-brand demo">
-            <a href="index.html" class="app-brand-link">
+            <a href="{{ route('home') }}" class="app-brand-link">
               <span class="app-brand-logo demo">
               </span>
               <span class="app-brand-text demo menu-text fw-bolder ms-2">
@@ -79,7 +79,7 @@
           <ul class="menu-inner py-1">
             <!-- Dashboard -->
             <li class="menu-item active">
-              <a href="index.html" class="menu-link">
+              <a href="{{ route('home') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">Dashboard</div>
               </a>
@@ -111,12 +111,32 @@
                 <div data-i18n="Analytics">บันทึกการทำงาน</div>
               </a>
             </li>  --}}
+
+            
             <li class="menu-item">
-              <a href="{{ route('booking.index') }}" class="menu-link">
+              <a href="{{ route('booking.index') }}" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-collection"></i>
-                <div data-i18n="Analytics">ระบบจองคิว</div>
+                <div data-i18n="Layouts">ระบบจองคิว</div>
               </a>
-            </li>      
+
+              <ul class="menu-sub">
+                <li class="menu-item">
+                  <a href="{{ route('booking.index') }}" class="menu-link">
+                    <div data-i18n="Without menu">ระบบจองคิว</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="{{ route('salon.index') }}" class="menu-link">
+                    <div data-i18n="Without menu">เพิ่มชื่อช่างเสริมสวย</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="{{ route('service.index') }}" class="menu-link">
+                    <div data-i18n="Without navbar">เพิ่มรายการบริการ</div>
+                  </a>
+                </li>
+              </ul>
+            </li>   
             {{-- <li class="menu-item">
               <a href="index.html" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-dollar"></i>
@@ -191,8 +211,8 @@
                             </div>
                           </div>
                           <div class="flex-grow-1">
-                            <span class="fw-semibold d-block">John Doe</span>
-                            <small class="text-muted">Admin</small>
+                            <span class="fw-semibold d-block">{{ Auth::user()->name }}</span>
+                            <small class="text-muted">{{ Auth::user()->email }}</small>
                           </div>
                         </div>
                       </a>

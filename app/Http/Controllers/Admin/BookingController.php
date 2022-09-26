@@ -4,20 +4,21 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Booking;
+use App\Models\Salon;
+use App\Models\Service;
 use Illuminate\Http\Request;
 
 
 class BookingController extends Controller
 {
     public function forntbooking(){
-        return view('booking')->with("booking",Booking::all());
+        return view('booking')->with("booking",Booking::all())->with("salon",Salon::all())->with("service",Service::all());
     }
     public function index(){
-        $booking = Booking::Paginate(20);
-        return view('admin.booking.index',compact('booking'));
+        return view('admin.booking.index')->with("booking",Booking::Paginate(20));
     }
     public function insert(){
-        return view('admin.booking.insert');
+        return view('admin.booking.insert')->with("salon",Salon::all())->with("service",Service::all());
     }
     public function create(Request $request){
         $validated = $request->validate([
@@ -25,8 +26,7 @@ class BookingController extends Controller
             'phone' => 'required|max:255',
             'date' => 'required',
             'time' => 'required',
-            'beautician' => 'required',
-            'manu' => 'required', 
+            
         ],[
             'name.required' => 'กรุณากรอกชื่อนามสกุล',
             'name.max:255' => 'ท่านกรอกข้อมูลเกิน 255 ตัวอักษร',
@@ -34,8 +34,7 @@ class BookingController extends Controller
             'phone.max:255' => 'ท่านกรอกข้อมูลเกิน 255 ตัวอักษร',
             'date.required' => 'กรุณาเลือกวันที่จอง',
             'time.required' => 'กรุณาเลือกเวลาที่จอง',
-            'beautician.required' => 'กรุณาเลือกช่างทำผม',
-            'manu.required' => 'กรุณาเลือกรายการใช้บริการ',
+         
         ]);
         $booking = new Booking();
         $booking->name = $request->name;
@@ -43,9 +42,38 @@ class BookingController extends Controller
         $booking->phone = $request->phone;
         $booking->date = $request->date;
         $booking->time = $request->time;
-        $booking->beautician = $request->beautician;
-        $booking->manu = $request->manu;
+        $booking->salon_id = $request->salon;
+        $booking->service_id = $request->services;
         $booking->manu2 = $request->manu2;
+        $sToken = "RvV4eZ3AOGS6LLWBs2i0aoc3qvFYdJlmGujEESWNu7x";
+        $sMessage = "ข้อความจากลูกค้าร้าน\n";
+        $sMessage .= "ชื่อ-นามสกุล : " . $request->name . "\n";
+        $sMessage .= "อีเมล์ : " . $request->email . "\n";
+        $sMessage .= "เบอร์โทรศัพท์ : " . $request->phone . "\n";
+        $sMessage .= "วันที่และเวลาจองคิว : " . $request->date ." "."เวลา ". $request->time. "\n";
+        $sMessage .= "รายการที่มาใช้บริการ : " . $request->salon ." ". $request->manu2. "\n";
+        $sMessage .= "ช่างที่เลือก : " . $request->services . "\n";
+
+        $chOne = curl_init();
+        curl_setopt($chOne, CURLOPT_URL, "https://notify-api.line.me/api/notify");
+        curl_setopt($chOne, CURLOPT_SSL_VERIFYHOST, 0);
+        curl_setopt($chOne, CURLOPT_SSL_VERIFYPEER, 0);
+        curl_setopt($chOne, CURLOPT_POST, 1);
+        curl_setopt($chOne, CURLOPT_POSTFIELDS, "message=" . $sMessage);
+        $headers = array('Content-type: application/x-www-form-urlencoded', 'Authorization: Bearer ' . $sToken . '',);
+        curl_setopt($chOne, CURLOPT_HTTPHEADER, $headers);
+        curl_setopt($chOne, CURLOPT_RETURNTRANSFER, 1);
+        $result = curl_exec($chOne);
+
+        //Result error
+        if (curl_error($chOne)) {
+            echo 'error:' . curl_error($chOne);
+        } else {
+            $result_ = json_decode($result, true);
+            echo "status : " . $result_['status'];
+            echo "message : " . $result_['message'];
+        }
+        curl_close($chOne);
         $booking->save();
         alert()->success('คุณได้จองคิวเรียบร้อยแล้ว','รอช่างรับคิว ทางร้านจะติดกลับผ่านหมายโทรศัพท์ที่ให้ไว้');
         return redirect('/booking');
@@ -58,8 +86,7 @@ class BookingController extends Controller
             'phone' => 'required|max:255',
             'date' => 'required',
             'time' => 'required',
-            'beautician' => 'required',
-            'manu' => 'required', 
+           
         ],[
             'name.required' => 'กรุณากรอกชื่อนามสกุล',
             'name.max:255' => 'ท่านกรอกข้อมูลเกิน 255 ตัวอักษร',
@@ -67,8 +94,7 @@ class BookingController extends Controller
             'phone.max:255' => 'ท่านกรอกข้อมูลเกิน 255 ตัวอักษร',
             'date.required' => 'กรุณาเลือกวันที่จอง',
             'time.required' => 'กรุณาเลือกเวลาที่จอง',
-            'beautician.required' => 'กรุณาเลือกช่างทำผม',
-            'manu.required' => 'กรุณาเลือกรายการใช้บริการ',
+            
         ]);
         $booking = new Booking();
         $booking->name = $request->name;
@@ -76,9 +102,38 @@ class BookingController extends Controller
         $booking->phone = $request->phone;
         $booking->date = $request->date;
         $booking->time = $request->time;
-        $booking->beautician = $request->beautician;
-        $booking->manu = $request->manu;
+        $booking->salon_id = $request->salon;
+        $booking->service_id = $request->services;
         $booking->manu2 = $request->manu2;
+        $sToken = "RvV4eZ3AOGS6LLWBs2i0aoc3qvFYdJlmGujEESWNu7x";
+        $sMessage = "ข้อความจากลูกค้าร้าน\n";
+        $sMessage .= "ชื่อ-นามสกุล : " . $request->name . "\n";
+        $sMessage .= "อีเมล์ : " . $request->email . "\n";
+        $sMessage .= "เบอร์โทรศัพท์ : " . $request->phone . "\n";
+        $sMessage .= "วันที่และเวลาจองคิว : " . $request->date ." "."เวลา ". $request->time. "\n";
+        $sMessage .= "รายการที่มาใช้บริการ : " . $request->salon ." ". $request->manu2. "\n";
+        $sMessage .= "ช่างที่เลือก : " . $request->services . "\n";
+
+        $chOne = curl_init();
+        curl_setopt($chOne, CURLOPT_URL, "https://notify-api.line.me/api/notify");
+        curl_setopt($chOne, CURLOPT_SSL_VERIFYHOST, 0);
+        curl_setopt($chOne, CURLOPT_SSL_VERIFYPEER, 0);
+        curl_setopt($chOne, CURLOPT_POST, 1);
+        curl_setopt($chOne, CURLOPT_POSTFIELDS, "message=" . $sMessage);
+        $headers = array('Content-type: application/x-www-form-urlencoded', 'Authorization: Bearer ' . $sToken . '',);
+        curl_setopt($chOne, CURLOPT_HTTPHEADER, $headers);
+        curl_setopt($chOne, CURLOPT_RETURNTRANSFER, 1);
+        $result = curl_exec($chOne);
+
+        //Result error
+        if (curl_error($chOne)) {
+            echo 'error:' . curl_error($chOne);
+        } else {
+            $result_ = json_decode($result, true);
+            echo "status : " . $result_['status'];
+            echo "message : " . $result_['message'];
+        }
+        curl_close($chOne);
         $booking->save();
         alert()->success('คุณได้บันทึกเรียบร้อยแล้ว','');
         return redirect()->route('booking.index');
@@ -104,8 +159,8 @@ class BookingController extends Controller
         $booking->phone = $request->phone;
         $booking->date = $request->date;
         $booking->time = $request->time;
-        $booking->beautician = $request->beautician;
-        $booking->manu = $request->manu;
+        $booking->salon_id = $request->salon;
+        $booking->service_id = $request->services;
         $booking->manu2 = $request->manu2;
         $booking->status = $request->status;
         $booking->update();
