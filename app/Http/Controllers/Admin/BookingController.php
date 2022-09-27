@@ -48,12 +48,8 @@ class BookingController extends Controller
         $sToken = "RvV4eZ3AOGS6LLWBs2i0aoc3qvFYdJlmGujEESWNu7x";
         $sMessage = "ข้อความจากลูกค้าร้าน\n";
         $sMessage .= "ชื่อ-นามสกุล : " . $request->name . "\n";
-        $sMessage .= "อีเมล์ : " . $request->email . "\n";
         $sMessage .= "เบอร์โทรศัพท์ : " . $request->phone . "\n";
         $sMessage .= "วันที่และเวลาจองคิว : " . $request->date ." "."เวลา ". $request->time. "\n";
-        $sMessage .= "รายการที่มาใช้บริการ : " . $request->salon ." ". $request->manu2. "\n";
-        $sMessage .= "ช่างที่เลือก : " . $request->services . "\n";
-
         $chOne = curl_init();
         curl_setopt($chOne, CURLOPT_URL, "https://notify-api.line.me/api/notify");
         curl_setopt($chOne, CURLOPT_SSL_VERIFYHOST, 0);
@@ -108,12 +104,8 @@ class BookingController extends Controller
         $sToken = "RvV4eZ3AOGS6LLWBs2i0aoc3qvFYdJlmGujEESWNu7x";
         $sMessage = "ข้อความจากลูกค้าร้าน\n";
         $sMessage .= "ชื่อ-นามสกุล : " . $request->name . "\n";
-        $sMessage .= "อีเมล์ : " . $request->email . "\n";
         $sMessage .= "เบอร์โทรศัพท์ : " . $request->phone . "\n";
         $sMessage .= "วันที่และเวลาจองคิว : " . $request->date ." "."เวลา ". $request->time. "\n";
-        $sMessage .= "รายการที่มาใช้บริการ : " . $request->salon ." ". $request->manu2. "\n";
-        $sMessage .= "ช่างที่เลือก : " . $request->services . "\n";
-
         $chOne = curl_init();
         curl_setopt($chOne, CURLOPT_URL, "https://notify-api.line.me/api/notify");
         curl_setopt($chOne, CURLOPT_SSL_VERIFYHOST, 0);
@@ -150,7 +142,7 @@ class BookingController extends Controller
 
     public function edit($id){
         $booking = Booking::find($id);
-        return view('admin.booking.edit',compact('booking'));
+        return view('admin.booking.edit',compact('booking'))->with("salon",Salon::all())->with("service",Service::all());
     }
     public function update(Request $request, $id){
         $booking = Booking::find($id);

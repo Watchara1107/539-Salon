@@ -52,6 +52,8 @@
                                 <form action="{{ url('/admin/booking/queue/' . $book->id) }}" method="post">
                                     @csrf
                                     <input class="btn btn-success" type="submit" name="status" value="รับคิว"></input>
+                                    <input class="btn btn-primary" type="submit" name="status" value="กำลังใช้บริการ"></input>
+                                    <input class="btn btn-info" type="submit" name="status" value="อีก 5 นาทีเสร็จ"></input>
                                 </form>
                                 <a href="{{ url('/admin/booking/edit/' . $book->id) }}" class="btn btn-warning">แก้ไข</a>
                                 <a href="{{ url('/admin/booking/delete/' . $book->id) }}" class="btn btn-danger">ลบ</a>

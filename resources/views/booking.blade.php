@@ -157,7 +157,7 @@ https://templatemo.com/tm-573-eduwell
                    <br><br><br>
                    <div class="col-lg-12">
                     <fieldset>
-                        <input type="text" name="manu2" id="manu2" placeholder="อื่นๆ">
+                        <input type="text" name="manu2" id="manu2" placeholder="อื่นๆที่อยากบอกช่าง เช่นอาการแพ้ต่างๆ เป็นต้น">
                     </fieldset>
                 </div>
                    <br><br><br>
