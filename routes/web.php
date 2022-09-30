@@ -1,9 +1,11 @@
 <?php
 
 use App\Http\Controllers\Admin\BookingController;
+use App\Http\Controllers\Admin\Profile359salonController;
 use App\Http\Controllers\Admin\SalonController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Models\Booking;
+use App\Models\Profile;
 use App\Models\Salon;
 use App\Models\Service;
 use Illuminate\Support\Facades\Route;
@@ -20,7 +22,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome')->with("booking",Booking::all())->with("salon",Salon::all())->with("service",Service::all());
+    return view('welcome')
+    ->with("booking",Booking::all())
+    ->with("salon",Salon::all())
+    ->with("service",Service::all())
+    ->with("profile",Profile::all());
 });
 Route::get('/booking',[BookingController::class, 'forntbooking']);
 
@@ -54,3 +60,11 @@ Route::post('/admin/service/create',[ServiceController::class, 'create'])->name(
 Route::get('/admin/service/edit/{id}',[ServiceController::class, 'edit']);
 Route::post('/admin/service/update/{id}',[ServiceController::class, 'update']);
 Route::get('/admin/service/delete/{id}',[ServiceController::class, 'delete']);
+
+//Profile 539 Salon
+Route::get('/admin/profile/index',[Profile359salonController::class, 'index'])->name('pro.index');
+Route::get('/admin/profile/create',[Profile359salonController::class, 'create'])->name('pro.create');
+Route::post('/admin/profile/insert',[Profile359salonController::class, 'insert'])->name('store.multi.image');
+Route::get('/admin/profile/edit/{id}',[Profile359salonController::class, 'edit']);
+Route::post('/admin/profile/update',[Profile359salonController::class, 'update'])->name('update.multi.image');
+Route::get('/admin/profile/delete/{id}',[Profile359salonController::class, 'delete']);

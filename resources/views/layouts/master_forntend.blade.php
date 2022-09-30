@@ -47,7 +47,7 @@ https://templatemo.com/tm-573-eduwell
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
                             <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
-                            <li class="scroll-to-section"><a href="#courses">Services</a></li>
+                            <li class="scroll-to-section"><a href="#courses">Profile</a></li>
                             <li class="scroll-to-section"><a href="#booking">Queue Booking</a></li>
                             <li class="scroll-to-section"><a href="#contact-section">Contact</a></li>
 
@@ -92,7 +92,7 @@ https://templatemo.com/tm-573-eduwell
     <div class="col-lg-12">
         <ul class="social-icons">
             <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
-            <li><a href="#"><i class="fa-brands fa-line"></i></a></li>
+            <li><a href="https://lin.ee/wky6bJQY"><i class="fa-brands fa-line"></i></a></li>
             <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
             <li><a href="#"><i class="fa-brands fa-tiktok"></i></a></li>
         </ul>

@@ -137,6 +137,25 @@
                 </li>
               </ul>
             </li>   
+            <li class="menu-item">
+              <a href="{{ route('pro.index') }}" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-collection"></i>
+                <div data-i18n="Layouts">ผลงานของร้าน</div>
+              </a>
+
+              <ul class="menu-sub">
+                <li class="menu-item">
+                  <a href="{{ route('pro.index') }}" class="menu-link">
+                    <div data-i18n="Without menu">ภาพผลงาน</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="{{ route('pro.create') }}" class="menu-link">
+                    <div data-i18n="Without menu">เพิ่มผลงาน</div>
+                  </a>
+                </li>
+              </ul>
+            </li>   
             {{-- <li class="menu-item">
               <a href="index.html" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-dollar"></i>
