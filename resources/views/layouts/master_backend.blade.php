@@ -155,6 +155,46 @@
                   </a>
                 </li>
               </ul>
+            </li>  
+
+            <li class="menu-item">
+              <a href="{{ route('incom.index') }}" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-collection"></i>
+                <div data-i18n="Layouts">รายได้ของร้าน</div>
+              </a>
+
+              <ul class="menu-sub">
+                <li class="menu-item">
+                  <a href="{{ route('incom.index') }}" class="menu-link">
+                    <div data-i18n="Without menu">รายได้</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="{{ route('incom.create') }}" class="menu-link">
+                    <div data-i18n="Without menu">เพิ่มรายได้</div>
+                  </a>
+                </li>
+              </ul>
+            </li>   
+
+            <li class="menu-item">
+              <a href="{{ route('expenses.index') }}" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-collection"></i>
+                <div data-i18n="Layouts">รายจ่ายของร้าน</div>
+              </a>
+
+              <ul class="menu-sub">
+                <li class="menu-item">
+                  <a href="{{ route('expenses.index') }}" class="menu-link">
+                    <div data-i18n="Without menu">รายจ่าย</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="{{ route('expenses.create') }}" class="menu-link">
+                    <div data-i18n="Without menu">เพิ่มรายจ่าย</div>
+                  </a>
+                </li>
+              </ul>
             </li>   
             {{-- <li class="menu-item">
               <a href="index.html" class="menu-link">

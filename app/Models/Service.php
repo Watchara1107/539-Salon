@@ -13,4 +13,7 @@ class Service extends Model
     public function booking(){
         return $this->hasMany(Booking::class,'service_id');
     }
+    public function incom(){
+        return $this->hasMany(Incom::class,'service_id');
+    }
 }

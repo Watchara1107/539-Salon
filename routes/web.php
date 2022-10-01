@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Admin\BookingController;
+use App\Http\Controllers\Admin\ExpensesController;
+use App\Http\Controllers\Admin\IncomController;
 use App\Http\Controllers\Admin\Profile359salonController;
 use App\Http\Controllers\Admin\SalonController;
 use App\Http\Controllers\Admin\ServiceController;
@@ -68,3 +70,20 @@ Route::post('/admin/profile/insert',[Profile359salonController::class, 'insert']
 Route::get('/admin/profile/edit/{id}',[Profile359salonController::class, 'edit']);
 Route::post('/admin/profile/update',[Profile359salonController::class, 'update'])->name('update.multi.image');
 Route::get('/admin/profile/delete/{id}',[Profile359salonController::class, 'delete']);
+
+//Incom
+Route::get('/admin/incom/index',[IncomController::class, 'index'])->name('incom.index');
+Route::get('/admin/incom/create',[IncomController::class, 'create'])->name('incom.create');
+Route::post('/admin/incom/insert',[IncomController::class, 'insert'])->name('incom.insert');
+Route::get('/admin/incom/edit/{id}',[IncomController::class, 'edit']);
+Route::post('/admin/incom/update/{id}',[IncomController::class, 'update']);
+Route::get('/admin/incom/delete/{id}',[IncomController::class, 'delete']);
+
+
+//Expenses
+Route::get('/admin/expenses/index',[ExpensesController::class, 'index'])->name('expenses.index');
+Route::get('/admin/expenses/create',[ExpensesController::class, 'create'])->name('expenses.create');
+Route::post('/admin/expenses/insert',[ExpensesController::class, 'insert'])->name('expenses.insert');
+Route::get('/admin/expenses/edit/{id}',[ExpensesController::class, 'edit']);
+Route::post('/admin/expenses/update/{id}',[ExpensesController::class, 'update']);
+Route::get('/admin/expenses/delete/{id}',[ExpensesController::class, 'delete']);
