@@ -6,13 +6,20 @@ use App\Http\Controllers\Controller;
 use App\Models\Incom;
 use App\Models\Salon;
 use App\Models\Service;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Date;
 
 class IncomController extends Controller
 {
     public function index(){
-        $incom = Incom::Paginate('20');
+        $incom = Incom::whereDate('created_at', Carbon::today())->Paginate('20');
         return view('admin.incom.index',compact('incom'));
+    }
+
+    public function indexall(){
+        $in = Incom::Paginate('20');
+        return view('admin.incom.index-all',compact('in'));
     }
 
     public function create(){

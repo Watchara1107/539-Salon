@@ -13,11 +13,11 @@
                 </div>
                 <div class="row">
                     @foreach ($profile as $pro)
-                    <div class="col-4 mt-4">
-                        <div class="card">
-                            <img src="{{ asset($pro->multi_image) }}" alt="">
+                        <div class="col-lg-4 mt-4">
+                            <div class="card">
+                                <img src="{{ asset($pro->multi_image) }}" alt="">
+                            </div>
                         </div>
-                    </div>
                     @endforeach
                 </div>
             </div>
@@ -32,7 +32,7 @@
                         <div class="col-lg-9 shadow p-3 mb-5 bg-body rounded">
                             <div class="section-heading">
                                 <h6>Booking</h6>
-                                <h4>รายการตรวจสอบคิวรับบริการ<em>ร้าน 365 Salon</em></h4>
+                                <h4>รายการตรวจสอบคิวรับบริการ<em>ร้าน 539 Salon</em></h4>
                             </div>
                             <table class="table">
                                 <thead>
@@ -71,7 +71,7 @@
                             <div class="col-lg-12">
                                 <div class="section-heading">
                                     <h6>Booking</h6>
-                                    <h4>ระบบจองคิว <em>ร้าน 365 Salon</em></h4>
+                                    <h4>ระบบจองคิว <em>ร้าน 539 Salon</em></h4>
                                 </div>
                             </div>
                             <div class="col-lg-12">
@@ -149,7 +149,7 @@
 
                         <!-- You just need to go to Google Maps for your own map point, and copy the embed code from Share -> Embed a map section -->
                         <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d242.27492707522984!2d100.53285891661844!3d13.694277677600258!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e29f5479e88cbb%3A0xdb092bef016b0307!2z4LmC4Lij4LiH4LmA4Lij4Li14Lii4LiZ4LiB4Lin4LiU4Lin4Li04LiK4LiyIOC5geC4oeC5h-C4gQ!5e0!3m2!1sth!2sth!4v1664016298734!5m2!1sth!2sth"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62022.359458815146!2d100.49810997910157!3d13.694360600000016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e29f0acf5993db%3A0xa1548aca90b8f7ee!2s539Salon!5e0!3m2!1sth!2sth!4v1664626620190!5m2!1sth!2sth"
                             width="100%" height="420" style="border:0;" allowfullscreen="" loading="lazy"
                             referrerpolicy="no-referrer-when-downgrade"></iframe>
                         <div class="row">
@@ -174,4 +174,24 @@
                         </div>
                     </div>
                 </div>
+                <div class="fb-customerchat" page_id="110333965172867"></div>
+                <script>
+                    window.fbAsyncInit = function() {
+                        FB.init({
+                            appId: '1750517141977071',
+                            autoLogAppEvents: true,
+                            xfbml: true,
+                            version: 'v12.0'
+                        });
+                    };
+
+                    (function(d, s, id) {
+                        var js, fjs = d.getElementsByTagName(s)[0];
+                        if (d.getElementById(id)) return;
+                        js = d.createElement(s);
+                        js.id = id;
+                        js.src = "https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js";
+                        fjs.parentNode.insertBefore(js, fjs);
+                    }(document, 'script', 'facebook-jssdk'));
+                </script>
             @endsection

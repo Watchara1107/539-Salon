@@ -165,13 +165,18 @@
 
               <ul class="menu-sub">
                 <li class="menu-item">
-                  <a href="{{ route('incom.index') }}" class="menu-link">
-                    <div data-i18n="Without menu">รายได้</div>
+                  <a href="{{ route('incom.create') }}" class="menu-link">
+                    <div data-i18n="Without menu">เพิ่มรายได้</div>
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="{{ route('incom.create') }}" class="menu-link">
-                    <div data-i18n="Without menu">เพิ่มรายได้</div>
+                  <a href="{{ route('incom.index') }}" class="menu-link">
+                    <div data-i18n="Without menu">รายได้ประจำวัน</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="{{ route('incom.index.all') }}" class="menu-link">
+                    <div data-i18n="Without menu">รายได้ทั้งหมด</div>
                   </a>
                 </li>
               </ul>
@@ -185,15 +190,16 @@
 
               <ul class="menu-sub">
                 <li class="menu-item">
-                  <a href="{{ route('expenses.index') }}" class="menu-link">
-                    <div data-i18n="Without menu">รายจ่าย</div>
-                  </a>
-                </li>
-                <li class="menu-item">
                   <a href="{{ route('expenses.create') }}" class="menu-link">
                     <div data-i18n="Without menu">เพิ่มรายจ่าย</div>
                   </a>
                 </li>
+                <li class="menu-item">
+                  <a href="{{ route('expenses.index') }}" class="menu-link">
+                    <div data-i18n="Without menu">รายจ่าย</div>
+                  </a>
+                </li>
+                
               </ul>
             </li>   
             {{-- <li class="menu-item">

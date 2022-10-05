@@ -70,6 +70,7 @@ class ExpensesController extends Controller
             $expenses->num = $request->num;
             $expenses->price = $request->price;
             $expenses->comment = $request->comment;
+            $expenses->image = $request->image;
             if ($expenses->image != 'nopic.jpg') {
                 File::delete(public_path() . '/backend/upload/expenses/' . $expenses->image);
             }
@@ -78,6 +79,11 @@ class ExpensesController extends Controller
             Image::make(public_path() . '/backend/upload/expenses/' . $filename);
             $expenses->image = $filename;
         }
+        $expenses = Expenses::find($id);
+        $expenses->name = $request->name;
+        $expenses->num = $request->num;
+        $expenses->price = $request->price;
+        $expenses->comment = $request->comment;
         $expenses->save();
         alert()->success('คุณได้แก้ไขรายการซื้อเรียบร้อยแล้ว', '');
         return redirect()->route('expenses.index');

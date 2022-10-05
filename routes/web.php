@@ -73,6 +73,7 @@ Route::get('/admin/profile/delete/{id}',[Profile359salonController::class, 'dele
 
 //Incom
 Route::get('/admin/incom/index',[IncomController::class, 'index'])->name('incom.index');
+Route::get('/admin/incom/index/all',[IncomController::class, 'indexall'])->name('incom.index.all');
 Route::get('/admin/incom/create',[IncomController::class, 'create'])->name('incom.create');
 Route::post('/admin/incom/insert',[IncomController::class, 'insert'])->name('incom.insert');
 Route::get('/admin/incom/edit/{id}',[IncomController::class, 'edit']);

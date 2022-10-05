@@ -135,7 +135,7 @@ class BookingController extends Controller
     public function queue(Request $request, $id){
         $booking = Booking::find($id);
         $booking->status = $request->status;
-        alert()->success('คุณได้กดรับคิวลูกค้าแล้ว','');
+        alert()->success('ระบบได้บันทึกข้อมูลแล้ว','');
         $booking->save();
         return redirect()->route('booking.index');
     }

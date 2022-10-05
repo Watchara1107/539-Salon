@@ -17,6 +17,7 @@
                         <th>เวลาที่จอง</th>
                         <th>รายการจอง</th>
                         <th>ชื่อช่าง</th>
+                        <th>หมายเหตุ</th>
                         <th>สถานะ</th>
                         <th>ใช้บริการแล้ว</th>
                         <th>Action</th>
@@ -34,26 +35,27 @@
                             <td>{{ $book->time }}</td>
                             <td>{{ $book->services->name }} </td>
                             <td>{{ $book->salon->name }}</td>
+                            <td>{{ $book->manu2 }}</td>
                             <td><span class="badge bg-label-primary me-1">{{ $book->status }}</span></td>
                             <td>
                                 @if ($book->service == 0)
                                     <form action="{{ url('/admin/booking/open/'.$book->id) }}" method="post">
                                       @csrf
-                                      <button type="submit" class="btn btn-success" name="service" value = "1">ใช้บริการแล้ว</button>
+                                      <button type="submit" class="btn btn-danger" name="service" value = "1">ยังไม่ใช้บริการ</button>
                                     </form>
                                 @elseif ( $book->service == 1)
                                       <form action="{{ url('/admin/booking/end/'.$book->id) }}" method="post">
                                         @csrf
-                                        <button type="submit" class="btn btn-danger" name="service" value = "0">ยังไม่ใช้บริการ</button>
+                                        <button type="submit" class="btn btn-success" name="service" value = "0">ใช้บริการแล้ว</button>
                                       </form>
                                 @endif
                             </td>
                             <td>
                                 <form action="{{ url('/admin/booking/queue/' . $book->id) }}" method="post">
                                     @csrf
-                                    <input class="btn btn-success" type="submit" name="status" value="รับคิว"></input>
+                                    <input class="btn btn-info" type="submit" name="status" value="รับคิว"></input>
                                     <input class="btn btn-primary" type="submit" name="status" value="กำลังใช้บริการ"></input>
-                                    <input class="btn btn-info" type="submit" name="status" value="อีก 5 นาทีเสร็จ"></input>
+                                    <input class="btn btn-success" type="submit" name="status" value="ทำเสร็จแล้ว"></input>
                                 </form>
                                 <a href="{{ url('/admin/booking/edit/' . $book->id) }}" class="btn btn-warning">แก้ไข</a>
                                 <a href="{{ url('/admin/booking/delete/' . $book->id) }}" class="btn btn-danger">ลบ</a>

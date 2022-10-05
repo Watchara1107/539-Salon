@@ -4,12 +4,12 @@
        
     </div>
     <div class="card mt-4">
-        <h5 class="card-header">ผลงานของร้าน 359 salon</h5>
+        <h5 class="card-header">ผลงานของร้าน 539 salon</h5>
         <div class="table-responsive text-nowrap">
-            <div class="row mb-5">
+            <div class="row md-5">
 
                 @foreach ($profile as $pro)
-                <div class="col-md-6 col-lg-4 mb-3">
+                <div class="col-md-6 col-lg-4 mb-5">
                   <div class="card h-100">
                     <img class="card-img-top" src="{{ asset($pro->multi_image) }}" alt="Card image cap"  />
                     <div class="card-body">
