@@ -335,7 +335,7 @@
                   <script>
                       document.write(new Date().getFullYear());
                   </script>
-                  , Style Salon ❤️ by
+                  , 539 Salon ❤️ by
                   <a href="" target="_blank"
                       class="footer-link fw-bolder">Watchara Ketkaew</a>
               </div>

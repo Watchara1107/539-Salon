@@ -79,6 +79,7 @@ Route::post('/admin/incom/insert',[IncomController::class, 'insert'])->name('inc
 Route::get('/admin/incom/edit/{id}',[IncomController::class, 'edit']);
 Route::post('/admin/incom/update/{id}',[IncomController::class, 'update']);
 Route::get('/admin/incom/delete/{id}',[IncomController::class, 'delete']);
+Route::get('/admin/incom/search',[IncomController::class, 'searchincom']);
 
 
 //Expenses

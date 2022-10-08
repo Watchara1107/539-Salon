@@ -41,7 +41,7 @@ https://templatemo.com/tm-573-eduwell
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
                         <a href="{{ url('/') }}" class="logo">
-                            <img src="{{ asset('forntend/assets/images/539salonlogo.png') }}" alt="EduWell Template">
+                            <img src="{{ asset('forntend/assets/images/539salonlogo1.png') }}" alt="EduWell Template">
                         </a>
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
@@ -91,15 +91,15 @@ https://templatemo.com/tm-573-eduwell
 
     <div class="col-lg-12">
         <ul class="social-icons">
-            <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+            <li><a href="https://www.facebook.com/539salon"><i class="fa-brands fa-facebook"></i></a></li>
             <li><a href="https://lin.ee/wky6bJQY"><i class="fa-brands fa-line"></i></a></li>
-            <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
-            <li><a href="#"><i class="fa-brands fa-tiktok"></i></a></li>
+            {{-- <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+            <li><a href="#"><i class="fa-brands fa-tiktok"></i></a></li> --}}
         </ul>
     </div>
     <div class="col-lg-12">
         <p class="copyright">Copyright © 2022 539 Salon All Rights Reserved. <a href="{{ route('login') }}">Login</a>
-          <a href="{{ route('register') }}">Register</a>
+          {{-- <a href="{{ route('register') }}">Register</a> --}}
 
             <br>Design: <a rel="sponsored" href="" target="_blank">Watchara Ketkaew</a>
       

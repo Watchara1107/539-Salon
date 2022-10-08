@@ -3,20 +3,8 @@
     <div class="col-md-4">
     </div>
     <div class="card mt-4">
-        <h5 class="card-header">รายได้ของร้าน</h5>
-        <div class="row mt-4">
-            {{-- <div class="col-9"></div>
-            <div class="col mb-4 md-2 xl-2">
-                <form action="" method="get">
-                    @csrf
-                <input type="date" name="date" class="form-control ">
-            </form>
-            </div>
-            <div class="col-1"></div> --}}
-        </div>
+        <h5 class="card-header">รายได้ประจำวันที่ {{ now()->format('d-m-Y') }} ของร้าน 539 Salon</h5>
         <div class="table-responsive text-nowrap">
-
-            
             <table class="table">
                 <thead>
                     <tr>
@@ -50,6 +38,14 @@
                             </td>
                         </tr>
                         @endforeach
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td colspan="2" class="text-start"><strong>รวมรายได้ประจำวันที่ {{ now()->format('d-m-Y') }} จำนวนเงิน {{number_format($incom->sum('price')) }} บาท</strong></td>
+                        </tr>
                 </tbody>
             </table>
         </div>

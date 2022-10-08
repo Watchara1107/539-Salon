@@ -3,7 +3,7 @@
     <div class="col-md-4">
     </div>
     <div class="card mt-4">
-        <h5 class="card-header">รายได้ของร้าน</h5>
+        <h5 class="card-header">รายได้ประจำวันของร้าน 539 Salon</h5>
         <div class="row mt-4">
             <div class="col-9"></div>
             <div class="col mb-4 md-2 xl-2">
@@ -34,22 +34,22 @@
                     </tr>
                 </thead>
                 <tbody class="table-border-bottom-0">
-                  @foreach ($in as $item)
+                  @foreach ($incom as $incoms)
                       
                   
                         <tr>
                             <td><i class="fab fa-angular fa-lg text-danger me-3"></i> 
-                                <strong>{{ $in->firstItem() + $loop->index }}</strong></td>
-                            <td>{{ $item->services->name }}</td>
-                            <td>{{ $item->price }}</td>
-                            <td>{{ $item->salon->name }}</td>
-                            <td>{{ $item->created_at}}</td>
-                            <td>{{ $item->comment }}</td>
+                                <strong>{{ $incom->firstItem() + $loop->index }}</strong></td>
+                            <td>{{ $incoms->services->name }}</td>
+                            <td>{{ $incoms->price }}</td>
+                            <td>{{ $incoms->salon->name }}</td>
+                            <td>{{ $incoms->created_at}}</td>
+                            <td>{{ $incoms->comment }}</td>
                            
                             <td>
                                 
-                                <a href="{{ asset('admin/incom/edit/'.$item->id) }}" class="btn btn-warning">แก้ไข</a>
-                                <a href="{{ asset('admin/incom/delete/'.$item->id) }}" class="btn btn-danger">ลบ</a>
+                                <a href="{{ asset('admin/incom/edit/'.$incoms->id) }}" class="btn btn-warning">แก้ไข</a>
+                                <a href="{{ asset('admin/incom/delete/'.$incoms->id) }}" class="btn btn-danger">ลบ</a>
 
                             </td>
                         </tr>
@@ -60,16 +60,11 @@
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td></td>
-                            <td class="text-start"><strong>รวมรายได้ทั้งหมด {{number_format($in->sum('price')) }} บาท</strong></td>
+                            <td colspan="2" class="text-start"><strong>รวมรายได้ประจำวัน {{number_format($incom->sum('price')) }} บาท</strong></td>
                         </tr>
                 </tbody>
             </table>
         </div>
-        <div class="container">
-            <div class="row mt-4">
-             {{ $in->links('pagination::bootstrap-5') }}
-            </div>
-        </div>
+    
     </div>
 @endsection

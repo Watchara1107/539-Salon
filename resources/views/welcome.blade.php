@@ -76,60 +76,65 @@
                             </div>
                             <div class="col-lg-12">
                                 <fieldset>
-                                    <input type="name" name="name" id="name" placeholder="ชื่อ-นามสกุลผู้จอง"
-                                        autocomplete="on" required>
+                                    <label for="name" class="form-label">ชื่อผู้จอง</label>
+                                    <input type="name" name="name" id="name" autocomplete="on" required>
                                 </fieldset>
                             </div>
                             <div class="col-lg-12">
                                 <fieldset>
-                                    <input type="text" name="email" id="อีเมล์" pattern="[^ @]*@[^ @]*"
-                                        placeholder="อีเมล์">
+                                    <label for="email" class="form-label">อีเมล์</label>
+                                    <input type="text" name="email" id="email" pattern="[^ @]*@[^ @]*">
                                 </fieldset>
                             </div>
                             <div class="col-lg-12">
                                 <fieldset>
-                                    <input type="text" name="phone" id="phone" placeholder="เบอร์โทรศัพท์"
-                                        required="">
+                                    <label for="phone" class="form-label">เบอร์โทรศัพท์</label>
+                                    <input type="text" name="phone" id="phone" required="">
                                 </fieldset>
                             </div>
                             <div class="col-lg-12">
                                 <fieldset>
+                                    <label for="date" class="form-label">วันที่จอง</label>
                                     <input type="date" name="date" id="date" required>
                                 </fieldset>
                             </div>
                             <div class="col-lg-12">
                                 <fieldset>
+                                    <label for="time" class="form-label">เวลาที่จอง</label>
                                     <input type="time" name="time" id="time" required>
                                 </fieldset>
                             </div>
                             <div class="col-lg-12">
                                 <fieldset>
-                                    <select class="form-control" name="salon">
-                                        <option value="">เลือกช่าง</option>
+                                    <label for="salon" class="form-label">เลือกช่าง</label>
+                                    <select class="form-control" name="salon" id="salon">
+                                        <option value=""></option>
                                         @foreach ($salon as $salons)
                                             <option value="{{ $salons->id }}">{{ $salons->name }}</option>
                                         @endforeach
                                     </select>
                                 </fieldset>
-                            </div><br><br><br>
+                            </div><br><br><br><br>
                             <div class="col-lg-12">
                                 <fieldset>
-                                    <select class="form-control" name="services">
-                                        <option value="">เลือกบริการ</option>
+                                    <label for="service" class="form-label">เลือกบริการ</label>
+                                    <select class="form-control" name="services" id="service">
+                                        <option value=""></option>
                                         @foreach ($service as $services)
                                             <option value="{{ $services->id }}">{{ $services->name }}</option>
                                         @endforeach
                                     </select>
                                 </fieldset>
                             </div>
-                            <br><br><br>
+                            <br><br><br><br>
                             <div class="col-lg-12">
                                 <fieldset>
+                                    <label for="manu2" class="form-label">อื่นๆ</label>
                                     <input type="text" name="manu2" id="manu2"
-                                        placeholder="อื่นๆที่อยากบอกช่าง เช่นอาการแพ้ต่างๆ เป็นต้น">
+                                        placeholder="อื่นๆที่อยากบอกช่างหรือใช้มากกว่า 1 บริการ">
                                 </fieldset>
                             </div>
-                            <br><br><br>
+                            <br><br><br><br>
 
                             <div class="col-lg-12">
                                 <fieldset>

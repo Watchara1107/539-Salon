@@ -9,6 +9,14 @@ class Incom extends Model
 {
     use HasFactory;
     protected $table = 'incoms';
+    protected $fillable = [
+        'service_id',
+        'salon_id',
+        'price',
+        'comment',
+        'created_at',
+        'updated_at'
+    ];
 
     public function salon()
     {

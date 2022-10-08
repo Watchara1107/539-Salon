@@ -3,7 +3,7 @@
 <form method="POST" action="{{ route('register') }}">
     @csrf
     <div class="text-center">
-        <span><img src="{{ asset('forntend/assets/images/539salonlogo.png') }}" alt=""></span> <br><br><br>
+        <span><img src="{{ asset('forntend/assets/images/539salonlogo1.png') }}" alt=""></span> <br><br><br>
     </div>
     <div class="form-group">
         <input type="text" class="form-control item" id="name" name="name" placeholder="Name">

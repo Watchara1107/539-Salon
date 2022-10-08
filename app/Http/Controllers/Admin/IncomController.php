@@ -75,4 +75,10 @@ class IncomController extends Controller
         alert()->success('คุณได้ลบข้อมูลเรียบร้อยแล้ว','');
         return redirect()->route('incom.index');
     }
+
+    public function searchincom(Request $request){
+        $search = $request->search;
+        $incom = Incom::where('created_at',"LIKE","%{$search}%");
+        return view('admin.incom.search')->with("incom",$incom);
+    }
 }
