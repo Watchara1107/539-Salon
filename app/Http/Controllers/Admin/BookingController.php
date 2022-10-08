@@ -15,7 +15,7 @@ class BookingController extends Controller
         return view('booking')->with("booking",Booking::all())->with("salon",Salon::all())->with("service",Service::all());
     }
     public function index(){
-        return view('admin.booking.index')->with("booking",Booking::Paginate(20));
+        return view('admin.booking.index')->with("booking",Booking::orderBy('date','desc')->Paginate(20));
     }
     public function insert(){
         return view('admin.booking.insert')->with("salon",Salon::all())->with("service",Service::all());
