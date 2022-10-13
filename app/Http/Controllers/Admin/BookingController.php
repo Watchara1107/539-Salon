@@ -38,7 +38,6 @@ class BookingController extends Controller
         ]);
         $booking = new Booking();
         $booking->name = $request->name;
-        $booking->email = $request->email;
         $booking->phone = $request->phone;
         $booking->date = $request->date;
         $booking->time = $request->time;
@@ -46,10 +45,11 @@ class BookingController extends Controller
         $booking->service_id = $request->services;
         $booking->manu2 = $request->manu2;
         $sToken = "RvV4eZ3AOGS6LLWBs2i0aoc3qvFYdJlmGujEESWNu7x";
-        $sMessage = "ข้อความจากลูกค้าร้าน\n";
+        $sMessage = "ระบบจองคิว\n";
         $sMessage .= "ชื่อ-นามสกุล : " . $request->name . "\n";
         $sMessage .= "เบอร์โทรศัพท์ : " . $request->phone . "\n";
         $sMessage .= "วันที่และเวลาจองคิว : " . $request->date ." "."เวลา ". $request->time. "\n";
+        $sMessage .= "หมายเหตุ : " . $request->manu2 . "\n";
         $chOne = curl_init();
         curl_setopt($chOne, CURLOPT_URL, "https://notify-api.line.me/api/notify");
         curl_setopt($chOne, CURLOPT_SSL_VERIFYHOST, 0);
@@ -94,7 +94,6 @@ class BookingController extends Controller
         ]);
         $booking = new Booking();
         $booking->name = $request->name;
-        $booking->email = $request->email;
         $booking->phone = $request->phone;
         $booking->date = $request->date;
         $booking->time = $request->time;
@@ -102,10 +101,11 @@ class BookingController extends Controller
         $booking->service_id = $request->services;
         $booking->manu2 = $request->manu2;
         $sToken = "RvV4eZ3AOGS6LLWBs2i0aoc3qvFYdJlmGujEESWNu7x";
-        $sMessage = "ข้อความจากลูกค้าร้าน\n";
+        $sMessage = "ระบบจองคิว\n";
         $sMessage .= "ชื่อ-นามสกุล : " . $request->name . "\n";
         $sMessage .= "เบอร์โทรศัพท์ : " . $request->phone . "\n";
         $sMessage .= "วันที่และเวลาจองคิว : " . $request->date ." "."เวลา ". $request->time. "\n";
+        $sMessage .= "หมายเหตุ : " . $request->manu2 . "\n";
         $chOne = curl_init();
         curl_setopt($chOne, CURLOPT_URL, "https://notify-api.line.me/api/notify");
         curl_setopt($chOne, CURLOPT_SSL_VERIFYHOST, 0);
@@ -147,7 +147,6 @@ class BookingController extends Controller
     public function update(Request $request, $id){
         $booking = Booking::find($id);
         $booking->name = $request->name;
-        $booking->email = $request->email;
         $booking->phone = $request->phone;
         $booking->date = $request->date;
         $booking->time = $request->time;

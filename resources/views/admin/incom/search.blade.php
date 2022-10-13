@@ -9,7 +9,7 @@
             <div class="col mb-4 md-2 xl-2">
                 <form action="{{ url('admin/incom/search/') }}" method="get">
                     @csrf
-                <input type="date" name="search" class="form-control ">
+                <input type="date" name="search" class="form-control">
             </div>
                 <div class="col">
                     <input type="submit" class="btn btn-primary" value="ค้นหา">
@@ -35,8 +35,6 @@
                 </thead>
                 <tbody class="table-border-bottom-0">
                   @foreach ($incom as $incoms)
-                      
-                  
                         <tr>
                             <td><i class="fab fa-angular fa-lg text-danger me-3"></i> 
                                 <strong>{{ $incom->firstItem() + $loop->index }}</strong></td>

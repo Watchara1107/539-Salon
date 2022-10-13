@@ -46,7 +46,7 @@
                     </div>
                   </div>
 
-                  <div class="mb-3 row">
+                  {{-- <div class="mb-3 row">
                     <label for="html5-email-input" class="col-md-2 col-form-label">รูปภาพ</label>
                     <div class="col-md-10">
                       <input name="image" class="form-control" type="file" id="image">
@@ -60,7 +60,7 @@
                         <img id="showImage" class="rounded avatar-lg" src="{{ asset('backend/upload/expenses/'.$expenses->image) }}"
                             alt="Card image cap" >
                     </div>
-                </div>
+                </div> --}}
       
                   <div class="row mt-4">
                     <div class="col-12">

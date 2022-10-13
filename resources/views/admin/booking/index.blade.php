@@ -11,7 +11,6 @@
                     <tr>
                         <th>ลำดับ</th>
                         <th>ชื่อ-นามสกุล</th>
-                        <th>อีเมล์</th>
                         <th>เบอร์โทรศัพท์</th>
                         <th>วันที่จอง</th>
                         <th>เวลาที่จอง</th>
@@ -29,7 +28,6 @@
                             <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
                                 <strong>{{ $booking->firstItem() + $loop->index }}</strong></td>
                             <td>{{ $book->name }}</td>
-                            <td>{{ $book->email }}</td>
                             <td>{{ $book->phone }}</td>
                             <td>{{ $book->date }}</td>
                             <td>{{ $book->time }}</td>

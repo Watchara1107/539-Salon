@@ -13,7 +13,7 @@ class ExpensesController extends Controller
 {
     public function index()
     {
-        $expenses = Expenses::paginate('20');
+        $expenses = Expenses::orderBy('created_at','desc')->paginate('20');
         return view('admin.expenses.index', compact('expenses'));
     }
     public function create()
@@ -27,14 +27,14 @@ class ExpensesController extends Controller
                 'name' => 'required|max:255',
                 'num' => 'required',
                 'price' => 'required',
-                'image' => 'mimes:jpg,jpeg,png',
+                // 'image' => 'mimes:jpg,jpeg,png',
             ],
             [
                 'name.required' => 'กรุณาป้อนรายการซื้อ',
                 'name.max' => 'ป้อนข้อมูลได้สูงสุด 255 ตัวอักษร',
                 'num.required' => 'กรุณาป้อนจำนวนที่ซื้อ',
                 'price.required' => 'กรุณาป้อนราคาที่ซื้อ',
-                'image.mimes' => 'บันทึกภาพได้เฉพาะไฟล์ jpg,jpeg,png',
+                // 'image.mimes' => 'บันทึกภาพได้เฉพาะไฟล์ jpg,jpeg,png',
 
             ]
         );
@@ -43,14 +43,14 @@ class ExpensesController extends Controller
         $expenses->num = $request->num;
         $expenses->price = $request->price;
         $expenses->comment = $request->comment;
-        if ($request->hasFile('image')) {
-            $filename = Str::random(10) . '.' . $request->file('image')->getClientOriginalExtension();
-            $request->file('image')->move(public_path() . '/backend/upload/expenses/', $filename);
-            Image::make(public_path() . '/backend/upload/expenses/' . $filename);
-            $expenses->image = $filename;
-        } else {
-            $expenses->image = 'nopic.jpg';
-        }
+        // if ($request->hasFile('image')) {
+        //     $filename = Str::random(10) . '.' . $request->file('image')->getClientOriginalExtension();
+        //     $request->file('image')->move(public_path() . '/backend/upload/expenses/', $filename);
+        //     Image::make(public_path() . '/backend/upload/expenses/' . $filename);
+        //     $expenses->image = $filename;
+        // } else {
+        //     $expenses->image = 'nopic.jpg';
+        // }
         $expenses->save();
         alert()->success('คุณได้เพิ่มรายการซื้อเรียบร้อยแล้ว', '');
         return redirect()->route('expenses.index');
@@ -64,21 +64,21 @@ class ExpensesController extends Controller
 
     public function update(Request $request, $id)
     {
-        if ($request->hasFile('image')) {
-            $expenses = Expenses::find($id);
-            $expenses->name = $request->name;
-            $expenses->num = $request->num;
-            $expenses->price = $request->price;
-            $expenses->comment = $request->comment;
-            $expenses->image = $request->image;
-            if ($expenses->image != 'nopic.jpg') {
-                File::delete(public_path() . '/backend/upload/expenses/' . $expenses->image);
-            }
-            $filename = Str::random(10) . '.' . $request->file('image')->getClientOriginalExtension();
-            $request->file('image')->move(public_path() . '/backend/upload/expenses/', $filename);
-            Image::make(public_path() . '/backend/upload/expenses/' . $filename);
-            $expenses->image = $filename;
-        }
+        // if ($request->hasFile('image')) {
+        //     $expenses = Expenses::find($id);
+        //     $expenses->name = $request->name;
+        //     $expenses->num = $request->num;
+        //     $expenses->price = $request->price;
+        //     $expenses->comment = $request->comment;
+        //     $expenses->image = $request->image;
+        //     if ($expenses->image != 'nopic.jpg') {
+        //         File::delete(public_path() . '/backend/upload/expenses/' . $expenses->image);
+        //     }
+        //     $filename = Str::random(10) . '.' . $request->file('image')->getClientOriginalExtension();
+        //     $request->file('image')->move(public_path() . '/backend/upload/expenses/', $filename);
+        //     Image::make(public_path() . '/backend/upload/expenses/' . $filename);
+        //     $expenses->image = $filename;
+        // }
         $expenses = Expenses::find($id);
         $expenses->name = $request->name;
         $expenses->num = $request->num;
@@ -92,9 +92,9 @@ class ExpensesController extends Controller
     public function delete($id)
     {
         $expenses = Expenses::find($id);
-        if ($expenses->image != 'nopic.jpg') {
-            File::delete(public_path() . '/backend/upload/expenses/' . $expenses->image);
-        }
+        // if ($expenses->image != 'nopic.jpg') {
+        //     File::delete(public_path() . '/backend/upload/expenses/' . $expenses->image);
+        // }
         $expenses->delete();
         alert()->success('คุณได้ลบรายการซื้อเรียบร้อยแล้ว', '');
         return redirect()->route('expenses.index');

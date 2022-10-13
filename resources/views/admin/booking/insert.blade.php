@@ -24,13 +24,6 @@
                       <input class="form-control" type="text" name="name"  id="html5-text-input" />
                     </div>
                   </div>
-             
-                  <div class="mb-3 row">
-                    <label for="html5-email-input" class="col-md-2 col-form-label">อีเมล์</label>
-                    <div class="col-md-10">
-                      <input class="form-control" type="text" name="email" id="html5-email-input" />
-                    </div>
-                  </div>
       
                   <div class="mb-3 row">
                     <label for="html5-tel-input" class="col-md-2 col-form-label">เบอร์โทรศัทพ์</label>
@@ -56,7 +49,7 @@
                   <div class="mb-3 row">
                     <label for="html5-tel-input" class="col-md-2 col-form-label">รายการจอง</label>
                     <div class="col-md-10">
-                        <select class="form-select" name="manu" required>
+                        <select class="form-select" name="services" required>
                           <option value="">เลือกบริการ</option>
                           @foreach($service as $services)
                           <option value="{{$services->id}}">{{$services->name}}</option>
@@ -75,7 +68,7 @@
                   <div class="mb-3 row">
                     <label for="html5-tel-input" class="col-md-2 col-form-label">เลือกช่าง</label>
                     <div class="col-md-10">
-                        <select class="form-select" name="beautician" required="">
+                        <select class="form-select" name="salon" required="">
                           <option value="">เลือกช่าง</option>
                           @foreach($salon as $salons)
                           <option value="{{$salons->id}}">{{$salons->name}}</option>

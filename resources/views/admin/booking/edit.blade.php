@@ -16,14 +16,6 @@
                         </div>
 
                         <div class="mb-3 row">
-                            <label for="html5-email-input" class="col-md-2 col-form-label">อีเมล์</label>
-                            <div class="col-md-10">
-                                <input class="form-control" type="text" name="email" value="{{ $booking->email }}"
-                                    id="html5-email-input" />
-                            </div>
-                        </div>
-
-                        <div class="mb-3 row">
                             <label for="html5-tel-input" class="col-md-2 col-form-label">เบอร์โทรศัทพ์</label>
                             <div class="col-md-10">
                                 <input class="form-control" type="tel" name="phone" value="{{ $booking->phone }}"

@@ -18,7 +18,7 @@ class IncomController extends Controller
     }
 
     public function indexall(){
-        $in = Incom::Paginate('20');
+        $in = Incom::orderBy('created_at','desc')->Paginate('100');
         return view('admin.incom.index-all',compact('in'));
     }
 
@@ -66,7 +66,7 @@ class IncomController extends Controller
         $incom->comment = $request->comment;
         $incom->update();
         alert()->success('คุณได้อัพเดทข้อมูลเรียบร้อยแล้ว','');
-        return redirect()->route('incom.index');
+        return redirect()->route('incom.index.all');
     }
 
     public function delete($id){
@@ -78,7 +78,7 @@ class IncomController extends Controller
 
     public function searchincom(Request $request){
         $search = $request->search;
-        $incom = Incom::where('created_at',"LIKE","%{$search}%");
+        $incom = Incom::where('created_at',"LIKE","%{$search}%")->paginate(50);
         return view('admin.incom.search')->with("incom",$incom);
     }
 }

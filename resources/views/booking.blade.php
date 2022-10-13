@@ -119,12 +119,6 @@ https://templatemo.com/tm-573-eduwell
                             </div>
                             <div class="col-lg-12">
                                 <fieldset>
-                                    <label for="email" class="form-label">อีเมล์</label>
-                                    <input type="text" name="email" id="email" pattern="[^ @]*@[^ @]*">
-                                </fieldset>
-                            </div>
-                            <div class="col-lg-12">
-                                <fieldset>
                                     <label for="phone" class="form-label">เบอร์โทรศัพท์</label>
                                     <input type="text" name="phone" id="phone" required="">
                                 </fieldset>

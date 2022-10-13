@@ -12,8 +12,8 @@
                         <th>รายการ</th>
                         <th>จำนวน</th>
                         <th>ราคา</th>
-                        <th>รูปภาพ</th>
-                        <th>วันที่ซื้อ</th>
+                        {{-- <th>รูปภาพ</th> --}}
+                        <th>วันที่จ่าย</th>
                         <th>หมายเหตุ</th>
                         <th>Action</th>
                     </tr>
@@ -29,7 +29,7 @@
                             <td>{{ $item->name }}</td>
                             <td>{{ $item->num }}</td>
                             <td>{{ $item->price }}</td>
-                            <td> <img src="{{ asset('backend/upload/expenses/'.$item->image) }}" width="100px" height="100px"> </td>
+                            {{-- <td> <img src="{{ asset('backend/upload/expenses/'.$item->image) }}" width="100px" height="100px"> </td> --}}
                             <td>{{ $item->created_at }}</td>
                             <td>{{ $item->comment }}</td>
                             
@@ -46,7 +46,7 @@
         </div>
         <div class="container">
             <div class="row mt-4">
-    
+                {{ $expenses->links('pagination::bootstrap-5') }}
             </div>
         </div>
     </div>

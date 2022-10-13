@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('num');
             $table->string('price');
             $table->string('comment')->nullable();
-            $table->string('image')->nullable()->default("ไม่มีรูปภาพ");
+            // $table->string('image')->nullable()->default("ไม่มีรูปภาพ");
             $table->timestamps();
         });
     }

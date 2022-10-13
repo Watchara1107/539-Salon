@@ -46,21 +46,21 @@
                     </div>
                   </div>
 
-                  <div class="mb-3 row">
+                  {{-- <div class="mb-3 row">
                       <label for="html5-email-input" class="col-md-2 col-form-label">รูปภาพ</label>
                       <div class="col-md-10">
                         <input name="image" class="form-control" type="file" id="image">
                       </div>
                     </div>
-                </div>
+                </div> --}}
                 <!-- end row -->
-                <div class="row mb-3">
+                {{-- <div class="row mb-3">
                     <label for="example-text-input" class="col-sm-2 col-form-label"> </label>
                     <div class="col-12">
                         <img id="showImage" class="rounded avatar-lg" src="{{ url('forntend\assets\images\no_image.jpg') }}"
                             alt="Card image cap" >
                     </div>
-                </div>
+                </div> --}}
       
                   <div class="row mt-4">
                     <div class="col-12">

@@ -16,7 +16,6 @@ return new class extends Migration
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('email')->nullable()->default("ลูกค้าไม่ได้กรอกข้อมูล");
             $table->string('phone');
             $table->date('date');
             $table->time('time');
