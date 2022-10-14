@@ -37,6 +37,13 @@
                     </div>
                   </div>
 
+                <div class="mb-3 row">
+                    <label for="html5-text-input" class="col-md-2 col-form-label">รหัสส่วนลด</label>
+                    <div class="col-md-10">
+                      <input class="form-control" type="text" name="discount"  id="html5-text-input" />
+                    </div>
+                  </div>
+
                   <div class="mb-3 row">
                     <label for="html5-tel-input" class="col-md-2 col-form-label">ชื่อช่าง</label>
                     <div class="col-md-10">

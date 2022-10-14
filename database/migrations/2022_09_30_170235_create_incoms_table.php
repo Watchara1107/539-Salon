@@ -18,6 +18,7 @@ return new class extends Migration
             $table->integer('service_id');
             $table->integer('salon_id');
             $table->string('price');
+            $table->string('discount')->nullable();
             $table->string('comment')->nullable();
             $table->timestamps();
         });

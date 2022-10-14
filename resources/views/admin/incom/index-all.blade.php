@@ -27,6 +27,7 @@
                         <th>ลำดับ</th>
                         <th>ชื่อบริการ</th>
                         <th>ราคา</th>
+                        <th>รหัสส่วนลด</th>
                         <th>ช่างที่ทำ</th>
                         <th>วันที่ทำ</th>
                         <th>หมายเหตุ</th>
@@ -42,6 +43,7 @@
                                 <strong>{{ $in->firstItem() + $loop->index }}</strong></td>
                             <td>{{ $item->services->name }}</td>
                             <td>{{ $item->price }}</td>
+                            <td>{{ $item->discount }}</td>
                             <td>{{ $item->salon->name }}</td>
                             <td>{{ $item->created_at}}</td>
                             <td>{{ $item->comment }}</td>
