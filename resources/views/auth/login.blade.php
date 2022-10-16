@@ -17,7 +17,7 @@
 </form>
 <div class="social-media">
     <p><a href="{{ route('password.request') }}">Forgot Your Password?</a></p>
-    <p><a href="{{ route('register') }}">Register</a></p>
+    {{-- <p><a href="{{ route('register') }}">Register</a></p> --}}
    
 </div>
 @endsection

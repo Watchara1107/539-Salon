@@ -40,11 +40,22 @@
                     </div>
                   </div>
 
-                <div class="mb-3 row">
+                  <div class="mb-3 row">
                     <label for="html5-text-input" class="col-md-2 col-form-label">รหัสส่วนลด</label>
                     <div class="col-md-10">
-                      <input class="form-control" type="text" name="discount" value="{{ $incom->discount }}" id="html5-text-input" />
-                    </div>
+                      <select class="form-select" name="discount_id">
+                        <option value="">ไม่มีส่วนลด</option>
+                        @foreach($discount as $item)
+                        <option value="{{$item->id}}"
+                          @if ($item->id == $incom->discount_id)
+                          selected
+                                  @endif
+                          >{{$item->discount_num}}
+                        </option>
+                        @endforeach
+                       
+                        </select>
+                  </div>
                   </div>
 
                   <div class="mb-3 row">

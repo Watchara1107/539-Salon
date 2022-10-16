@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Discount;
 use App\Models\Incom;
 use App\Models\Salon;
 use App\Models\Service;
@@ -25,6 +26,7 @@ class IncomController extends Controller
     public function create(){
         return view('admin.incom.create')
         ->with("salon", Salon::all())
+        ->with("discount", Discount::all())
         ->with("service",Service::all());
     }
 
@@ -33,13 +35,13 @@ class IncomController extends Controller
             'service' => 'required',
             'salon' => 'required',
             'price' => 'required',
-            'discount' => 'unique:incoms|nullable',
+            'discount_id' => 'unique:incoms|nullable',
            
         ],[
             'service.required' => 'กรุณาเลือกบริการ',
             'salon.required' => 'กรุณาเลือกช่าง',
             'price.required' => 'กรุณาใส่ราคา',
-            'discount.unique' => 'รหัสส่วนลดนี้ถูกใช้ไปแล้ว',
+            'discount_id.unique' => 'รหัสส่วนลดนี้ถูกใช้ไปแล้ว',
     
             
         ]);
@@ -47,7 +49,7 @@ class IncomController extends Controller
         $incom->service_id = $request->service;
         $incom->salon_id = $request->salon;
         $incom->price = $request->price;
-        $incom->discount = $request->discount;
+        $incom->discount_id = $request->discount_id;
         $incom->comment = $request->comment;
         $incom->save();
         alert()->success('คุณได้บันทึกเรียบร้อยแล้ว','');
@@ -58,6 +60,7 @@ class IncomController extends Controller
         return view('admin.incom.edit')
         ->with("incom",Incom::find($id))
         ->with("salon", Salon::all())
+        ->with("discount", Discount::all())
         ->with("service",Service::all());
     }
 
@@ -66,7 +69,7 @@ class IncomController extends Controller
         $incom->service_id = $request->service;
         $incom->salon_id = $request->salon;
         $incom->price = $request->price;
-        $incom->discount = $request->discount;
+        $incom->discount_id = $request->discount_id;
         $incom->comment = $request->comment;
         $incom->update();
         alert()->success('คุณได้อัพเดทข้อมูลเรียบร้อยแล้ว','');

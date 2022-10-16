@@ -43,7 +43,13 @@
                                 <strong>{{ $in->firstItem() + $loop->index }}</strong></td>
                             <td>{{ $item->services->name }}</td>
                             <td>{{ $item->price }}</td>
-                            <td>{{ $item->discount }}</td>
+                            <td>
+                                @if($item->discount_id !== null)
+                                {{ $item->discount->discount_num }}
+                                @else
+                                ไม่มีส่วนลด
+                                @endif
+                            </td>
                             <td>{{ $item->salon->name }}</td>
                             <td>{{ $item->created_at}}</td>
                             <td>{{ $item->comment }}</td>

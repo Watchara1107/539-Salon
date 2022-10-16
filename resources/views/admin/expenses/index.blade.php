@@ -1,7 +1,8 @@
 @extends('layouts.master_backend')
 @section('content')
-    <div class="col-md-4">
-    </div>
+<div class="col-md-4">
+    <a href="{{ route('expenses.create') }}" class="btn btn-primary">เพิ่มรายจ่าย</a>
+</div>
     <div class="card mt-4">
         <h5 class="card-header">รายจ่ายของร้าน</h5>
         <div class="table-responsive text-nowrap">

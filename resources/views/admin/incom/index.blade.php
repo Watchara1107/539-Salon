@@ -1,6 +1,7 @@
 @extends('layouts.master_backend')
 @section('content')
     <div class="col-md-4">
+        <a href="{{ route('incom.create') }}" class="btn btn-primary">เพิ่มรายได้</a>
     </div>
     <div class="card mt-4">
         <h5 class="card-header">รายได้ประจำวันที่ {{ now()->format('d-m-Y') }} ของร้าน 539 Salon</h5>
@@ -27,7 +28,13 @@
                                 <strong>{{ $incom->firstItem() + $loop->index }}</strong></td>
                             <td>{{ $incoms->services->name }}</td>
                             <td>{{ $incoms->price }}</td>
-                            <td>{{ $incoms->discount }}</td>
+                            <td>
+                                @if($incoms->discount_id !== null)
+                                {{ $incoms->discount->discount_num }}
+                                @else
+                                ไม่มีส่วนลด
+                                @endif
+                            </td>
                             <td>{{ $incoms->salon->name }}</td>
                             <td>{{ $incoms->created_at}}</td>
                             <td>{{ $incoms->comment }}</td>

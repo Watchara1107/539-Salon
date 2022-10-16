@@ -201,6 +201,27 @@
                 </li>
                 
               </ul>
+            </li>  
+
+            <li class="menu-item">
+              <a href="{{ route('discount.index') }}" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-collection"></i>
+                <div data-i18n="Layouts">ส่วนลด</div>
+              </a>
+
+              <ul class="menu-sub">
+                <li class="menu-item">
+                  <a href="{{ route('discount.create') }}" class="menu-link">
+                    <div data-i18n="Without menu">เพิ่มส่วนลด</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="{{ route('discount.index') }}" class="menu-link">
+                    <div data-i18n="Without menu">ตารางส่วนลด</div>
+                  </a>
+                </li>
+                
+              </ul>
             </li>   
             {{-- <li class="menu-item">
               <a href="index.html" class="menu-link">

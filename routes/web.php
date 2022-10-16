@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\BookingController;
+use App\Http\Controllers\Admin\DiscountController;
 use App\Http\Controllers\Admin\ExpensesController;
 use App\Http\Controllers\Admin\IncomController;
 use App\Http\Controllers\Admin\Profile359salonController;
@@ -89,3 +90,15 @@ Route::post('/admin/expenses/insert',[ExpensesController::class, 'insert'])->nam
 Route::get('/admin/expenses/edit/{id}',[ExpensesController::class, 'edit']);
 Route::post('/admin/expenses/update/{id}',[ExpensesController::class, 'update']);
 Route::get('/admin/expenses/delete/{id}',[ExpensesController::class, 'delete']);
+
+
+//Discount
+Route::get('/admin/discount/index',[DiscountController::class, 'index'])->name('discount.index');
+Route::get('/admin/discount/create',[DiscountController::class, 'create'])->name('discount.create');
+Route::post('/admin/discount/insert',[DiscountController::class, 'insert'])->name('discount.insert');
+Route::get('/admin/discount/edit/{id}',[DiscountController::class, 'edit']);
+Route::post('/admin/discount/update/{id}',[DiscountController::class, 'update']);
+Route::get('/admin/discount/delete/{id}',[DiscountController::class, 'delete']);
+
+
+
