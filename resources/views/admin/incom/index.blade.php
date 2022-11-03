@@ -4,7 +4,7 @@
         <a href="{{ route('incom.create') }}" class="btn btn-primary">เพิ่มรายได้</a>
     </div>
     <div class="card mt-4">
-        <h5 class="card-header">รายได้ประจำวันที่ {{ now()->format('d-m-Y') }} ของร้าน 539 Salon</h5>
+        <h5 class="card-header">รายได้ประจำวันที่ {{ now()->thaidate() }} ของร้าน 539 Salon</h5>
         <div class="table-responsive text-nowrap">
             <table class="table">
                 <thead>
@@ -53,7 +53,7 @@
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td colspan="2" class="text-start"><strong>รวมรายได้ประจำวันที่ {{ now()->format('d-m-Y') }} จำนวนเงิน {{number_format($incom->sum('price')) }} บาท</strong></td>
+                            <td colspan="2" class="text-start"><strong>รวมรายได้ประจำวันที่ {{ now()->thaidate() }} จำนวนเงิน {{number_format($incom->sum('price')) }} บาท</strong></td>
                         </tr>
                 </tbody>
             </table>

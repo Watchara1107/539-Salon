@@ -8,6 +8,8 @@ use App\Models\Incom;
 use App\Models\Profile;
 use App\Models\Service;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Month;
 
 class HomeController extends Controller
 {
@@ -28,8 +30,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        
-        return view('home')
+        $in = Incom::whereMonth('created_at', Carbon::today());
+        $ex = Expenses::whereMonth('created_at', Carbon::today());
+        return view('home',compact('in','ex'))
         ->with("book",Booking::all())
         ->with("incom",Incom::all())
         ->with("expenses",Expenses::all())

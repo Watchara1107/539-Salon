@@ -69,16 +69,16 @@ https://templatemo.com/tm-573-eduwell
                     <div class="row mt-5">
                         <div class="col-lg-9 shadow p-3 mb-5 bg-body rounded">
                             <div class="section-heading">
-                                <h6>Booking</h6>
+                                <h6>Service Queue Checklist</h6>
                                 <h4>รายการตรวจสอบคิวรับบริการ<em>ร้าน 539 Salon</em></h4>
                             </div>
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th scope="col">ชื่อ-นามสกุล</th>
-                                        <th scope="col">วันเดือนปีที่จอง</th>
-                                        <th scope="col">เวลาที่จอง</th>
-                                        <th scope="col">สถานะคิว</th>
+                                        <th scope="col">ชื่อผู้จอง (Name)</th>
+                                        <th scope="col">วันที่จอง (Date)</th>
+                                        <th scope="col">เวลาที่จอง (Time)</th>
+                                        <th scope="col">สถานะคิว (Status)</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -113,31 +113,31 @@ https://templatemo.com/tm-573-eduwell
                             </div>
                             <div class="col-lg-12">
                                 <fieldset>
-                                    <label for="name" class="form-label">ชื่อผู้จอง</label>
+                                    <label for="name" class="form-label">ชื่อผู้จอง (Name)</label>
                                     <input type="name" name="name" id="name" autocomplete="on" required>
                                 </fieldset>
                             </div>
                             <div class="col-lg-12">
                                 <fieldset>
-                                    <label for="phone" class="form-label">เบอร์โทรศัพท์</label>
+                                    <label for="phone" class="form-label">เบอร์โทรศัพท์ (Phone)</label>
                                     <input type="text" name="phone" id="phone" required="">
                                 </fieldset>
                             </div>
                             <div class="col-lg-12">
                                 <fieldset>
-                                    <label for="date" class="form-label">วันที่จอง</label>
+                                    <label for="date" class="form-label">วันที่จอง (Date)</label>
                                     <input type="date" name="date" id="date" required>
                                 </fieldset>
                             </div>
                             <div class="col-lg-12">
                                 <fieldset>
-                                    <label for="time" class="form-label">เวลาที่จอง</label>
+                                    <label for="time" class="form-label">เวลาที่จอง (Time)</label>
                                     <input type="time" name="time" id="time" required>
                                 </fieldset>
                             </div>
                             <div class="col-lg-12">
                                 <fieldset>
-                                    <label for="salon" class="form-label">เลือกช่าง</label>
+                                    <label for="salon" class="form-label">เลือกช่าง (Beautician)</label>
                                     <select class="form-control" name="salon" id="salon">
                                         <option value=""></option>
                                         @foreach ($salon as $salons)
@@ -148,7 +148,7 @@ https://templatemo.com/tm-573-eduwell
                             </div><br><br><br><br>
                             <div class="col-lg-12">
                                 <fieldset>
-                                    <label for="service" class="form-label">เลือกบริการ</label>
+                                    <label for="service" class="form-label">เลือกบริการ (Service)</label>
                                     <select class="form-control" name="services" id="service">
                                         <option value=""></option>
                                         @foreach ($service as $services)
@@ -160,7 +160,7 @@ https://templatemo.com/tm-573-eduwell
                             <br><br><br><br>
                             <div class="col-lg-12">
                                 <fieldset>
-                                    <label for="manu2" class="form-label">อื่นๆ</label>
+                                    <label for="manu2" class="form-label">อื่นๆ (Another)</label>
                                     <input type="text" name="manu2" id="manu2"
                                         placeholder="อื่นๆที่อยากบอกช่างหรือใช้มากกว่า 1 บริการ">
                                 </fieldset>
