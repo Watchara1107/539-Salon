@@ -66,6 +66,10 @@ class DiscountController extends Controller
 
     public function delete($id){
         $discount = Discount::find($id);
+        if($discount->incom->count()>0){
+            alert()->error('ไม่สามารถลบข้อมูลได้','เนื่องจากมีรายการอยู่ในประเภทนี้');
+            return redirect()->back();
+        }
         $discount->delete();
         alert()->success('คุณได้ลบส่วนลดแล้ว','');
         return redirect()->route('discount.index');

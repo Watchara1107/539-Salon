@@ -57,6 +57,21 @@
                                            <tr>
                                             <td><i class="fab fa-angular fa-lg text-danger me-3"></i>{{ $salon->firstItem() + $loop->index }}</td>
                                             <td>{{ $salons->name }}</td>
+
+                                            <td>
+                                                @if ($salons->status == 0)
+                                                    <form action="{{ url('/admin/salon/open/'.$salons->id) }}" method="post">
+                                                      @csrf
+                                                      <button type="submit" class="btn btn-success" name="status" value = "1">ยังอยู่</button>
+                                                    </form>
+                                                @elseif ( $salons->status == 1)
+                                                      <form action="{{ url('/admin/salon/end/'.$salons->id) }}" method="post">
+                                                        @csrf
+                                                        <button type="submit" class="btn btn-danger" name="status" value = "0">ออกแล้ว</button>
+                                                      </form>
+                                                @endif
+                                            </td>
+
                                             <td>
                                                 <a href="{{ url('/admin/salon/edit/'.$salons->id) }}" class="btn btn-warning">แก้ไข</a>
                                                 <a href="{{ url('/admin/salon/delete/'.$salons->id) }}" class="btn btn-danger">ลบ</a>

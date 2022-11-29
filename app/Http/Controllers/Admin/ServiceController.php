@@ -40,6 +40,10 @@ class ServiceController extends Controller
 
     public function delete($id){
         $service = service::find($id);
+        if($service->incom->count()>0){
+            alert()->error('ไม่สามารถลบข้อมูลได้','เนื่องจากมีรายการอยู่ในประเภทนี้');
+            return redirect()->back();
+        }
         $service->delete();
         alert()->success('คุณได้ลบข้อมูลเรียบร้อยแล้ว','');
         return redirect()->route('service.index');

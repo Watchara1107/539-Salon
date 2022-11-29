@@ -1,95 +1,97 @@
 @extends('layouts.master_backend')
 @section('content')
-<div class="text-center">
-    <div class="col-xl-12">
-        <div class="card mb-4">
-          <h5 class="card-header">เพิ่มข้อมูลการจองคิว</h5>
-          <div class="card-body">
-            <div class="row mt-2">
-                @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
+    <div class="text-center">
+        <div class="col-xl-12">
+            <div class="card mb-4">
+                <h5 class="card-header">เพิ่มข้อมูลการจองคิว</h5>
+                <div class="card-body">
+                    <div class="row mt-2">
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+                    </div>
+                    <form action="{{ route('booking.save') }}" method="post">
+                        @csrf
+                        <div class="mb-3 row">
+                            <label for="html5-text-input" class="col-md-2 col-form-label">ชื่อ-นามสกุล</label>
+                            <div class="col-md-10">
+                                <input class="form-control" type="text" name="name" id="html5-text-input" />
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <label for="html5-tel-input" class="col-md-2 col-form-label">เบอร์โทรศัทพ์</label>
+                            <div class="col-md-10">
+                                <input class="form-control" type="tel" name="phone" id="html5-tel-input" />
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <label for="html5-date-input" class="col-md-2 col-form-label">วันที่จอง</label>
+                            <div class="col-md-10">
+                                <input class="form-control" type="date" name="date" id="html5-date-input" />
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <label for="html5-time-input" class="col-md-2 col-form-label">เวลาที่จอง</label>
+                            <div class="col-md-10">
+                                <input class="form-control" type="time" name="time" id="html5-time-input" />
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <label for="html5-tel-input" class="col-md-2 col-form-label">รายการจอง</label>
+                            <div class="col-md-10">
+                                <select class="form-select" name="services" required>
+                                    <option value="">เลือกบริการ</option>
+                                    @foreach ($service as $services)
+                                        <option value="{{ $services->id }}">{{ $services->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <label for="html5-tel-input" class="col-md-2 col-form-label">อื่นๆ</label>
+                            <div class="col-md-10">
+                                <input class="form-control" type="text" name="manu2" id="html5-tel-input" />
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <label for="html5-tel-input" class="col-md-2 col-form-label">เลือกช่าง</label>
+                            <div class="col-md-10">
+                                <select class="form-select" name="salon" required="">
+                                    <option value="">เลือกช่าง</option>
+                                    @foreach ($salon as $salons)
+                                        @if ($salons->status == 0)
+                                            <option value="{{ $salons->id }}">{{ $salons->name }}</option>
+                                        @endif
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+
+
+
+                        <div class="row mt-4">
+                            <div class="col-12">
+                                <input type="submit" class="btn btn-primary" value="บันทึกข้อมูล">
+                            </div>
+                        </div>
+
+                    </form>
+
                 </div>
-            @endif
             </div>
-            <form action="{{ route('booking.save') }}" method="post">
-                @csrf
-                <div class="mb-3 row">
-                    <label for="html5-text-input" class="col-md-2 col-form-label">ชื่อ-นามสกุล</label>
-                    <div class="col-md-10">
-                      <input class="form-control" type="text" name="name"  id="html5-text-input" />
-                    </div>
-                  </div>
-      
-                  <div class="mb-3 row">
-                    <label for="html5-tel-input" class="col-md-2 col-form-label">เบอร์โทรศัทพ์</label>
-                    <div class="col-md-10">
-                      <input class="form-control" type="tel" name="phone"  id="html5-tel-input" />
-                    </div>
-                  </div>
-      
-                  <div class="mb-3 row">
-                    <label for="html5-date-input" class="col-md-2 col-form-label">วันที่จอง</label>
-                    <div class="col-md-10">
-                      <input class="form-control" type="date" name="date"  id="html5-date-input" />
-                    </div>
-                  </div>
-      
-                  <div class="mb-3 row">
-                    <label for="html5-time-input" class="col-md-2 col-form-label">เวลาที่จอง</label>
-                    <div class="col-md-10">
-                      <input class="form-control" type="time" name="time" id="html5-time-input" />
-                    </div>
-                  </div>
-
-                  <div class="mb-3 row">
-                    <label for="html5-tel-input" class="col-md-2 col-form-label">รายการจอง</label>
-                    <div class="col-md-10">
-                        <select class="form-select" name="services" required>
-                          <option value="">เลือกบริการ</option>
-                          @foreach($service as $services)
-                          <option value="{{$services->id}}">{{$services->name}}</option>
-                          @endforeach
-                          </select>
-                    </div>
-                  </div>
-
-                  <div class="mb-3 row">
-                    <label for="html5-tel-input" class="col-md-2 col-form-label">อื่นๆ</label>
-                    <div class="col-md-10">
-                      <input class="form-control" type="text" name="manu2"  id="html5-tel-input" />
-                    </div>
-                  </div>
-
-                  <div class="mb-3 row">
-                    <label for="html5-tel-input" class="col-md-2 col-form-label">เลือกช่าง</label>
-                    <div class="col-md-10">
-                        <select class="form-select" name="salon" required="">
-                          <option value="">เลือกช่าง</option>
-                          @foreach($salon as $salons)
-                          <option value="{{$salons->id}}">{{$salons->name}}</option>
-                          @endforeach
-                          </select>
-                    </div>
-                  </div>
-
-                 
-
-                  <div class="row mt-4">
-                    <div class="col-12">
-                        <input type="submit" class="btn btn-primary" value="บันทึกข้อมูล">
-                    </div>
-                  </div>
-
-            </form>
-
-          </div>
         </div>
-</div>
 
-  
-@endsection
+
+    @endsection

@@ -103,8 +103,10 @@
                                     <label for="salon" class="form-label">เลือกช่าง (Beautician)</label>
                                     <select class="form-control" name="salon" id="salon">
                                         <option value=""></option>
+                                        
                                         @foreach ($salon as $salons)
-                                            <option value="{{ $salons->id }}">{{ $salons->name }}</option>
+                                        @if ($salons->status == 0)
+                                            <option value="{{ $salons->id }}">{{ $salons->name }}</option>                               @endif
                                         @endforeach
                                     </select>
                                 </fieldset>

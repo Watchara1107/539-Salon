@@ -55,6 +55,8 @@ Route::post('/admin/salon/create',[SalonController::class, 'create'])->name('sal
 Route::get('/admin/salon/edit/{id}',[SalonController::class, 'edit']);
 Route::post('/admin/salon/update/{id}',[SalonController::class, 'update']);
 Route::get('/admin/salon/delete/{id}',[SalonController::class, 'delete']);
+Route::post('/admin/salon/open/{id}',[SalonController::class, 'open']);
+Route::post('/admin/salon/end/{id}',[SalonController::class, 'end']);
 
 
 //Service

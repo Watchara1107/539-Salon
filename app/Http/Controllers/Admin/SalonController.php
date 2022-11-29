@@ -41,8 +41,28 @@ class SalonController extends Controller
 
     public function delete($id){
         $salon = Salon::find($id);
+        if($salon->incom->count()>0){
+            alert()->error('ไม่สามารถลบข้อมูลได้','เนื่องจากมีรายการอยู่ในประเภทนี้');
+            return redirect()->back();
+        }
         $salon->delete();
         alert()->success('คุณได้ลบข้อมูลเรียบร้อยแล้ว','');
         return redirect()->route('salon.index');
     }
+
+    public function open(Request $request, $id){
+        $salon = Salon::find($id);
+        $salon->status = $request->status;
+        alert()->success('ออกแล้ว','');
+        $salon->save();
+        return redirect()->route('salon.index');
+    }
+    public function end(Request $request, $id){
+        $salon = Salon::find($id);
+        $salon->status = $request->status;
+        alert()->success('ยังทำงานอยู่','');
+        $salon->save();
+        return redirect()->route('salon.index');
+    }
+
 }
